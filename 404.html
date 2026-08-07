@@ -50,7 +50,11 @@
         var match = location.pathname.match(/\/(join|invite)\/([A-Za-z0-9_-]+)\/?$/);
         if (!match) return;
 
-        var target = 'datebook://' + match[1] + '/' + match[2];
+        // Three slashes: an empty authority, so the whole of what follows is
+        // the path. With two, 'invite' parses as the host and the router is
+        // handed only the id — which matches nothing and lands on Unmatched
+        // Route. This is the form Linking.createURL emits inside the app.
+        var target = 'datebook:///' + match[1] + '/' + match[2];
         document.getElementById('lost').hidden = true;
         document.getElementById('join').hidden = false;
         document.getElementById('retry').href = target;
