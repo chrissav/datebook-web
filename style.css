@@ -1,0 +1,164 @@
+/* Shared by every page here. Self-contained on purpose: no fonts, scripts or
+   images fetched from anywhere, so a site that says it doesn't track people
+   doesn't quietly call out to three other companies to render itself. */
+:root {
+  --paper: #f6efe1;
+  --card: #fffdf8;
+  --ink: #2c2723;
+  --ink-soft: #4a4239;
+  --muted: rgba(44, 39, 35, 0.62);
+  --line: rgba(44, 39, 35, 0.12);
+  --terracotta: #b4614a;
+  --gold: #c08a3e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px 40px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 44px 40px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+h1 {
+  margin: 12px 0 18px;
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: normal;
+  color: var(--ink);
+}
+
+.lead {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.steps {
+  margin-top: 34px;
+  border-top: 1px solid var(--line);
+}
+
+.steps > div {
+  padding-top: 22px;
+  margin-top: 22px;
+}
+
+.steps > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.steps h2 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.steps p {
+  margin: 0;
+}
+
+.status {
+  margin: 34px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* Long-form pages: privacy, support. */
+.updated {
+  margin: 0 0 30px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+article h2 {
+  margin: 34px 0 10px;
+  font-size: 21px;
+  font-weight: normal;
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+}
+
+article h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+strong {
+  color: var(--ink);
+}
+
+a {
+  color: var(--terracotta);
+}
+
+ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+footer {
+  max-width: 640px;
+  margin: 22px auto 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--muted);
+}
+
+footer span {
+  margin: 0 8px;
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 24px 14px 40px;
+  }
+  main {
+    padding: 30px 22px;
+    border-radius: 12px;
+  }
+  h1 {
+    font-size: 29px;
+  }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datebook</title>
+    <link rel="stylesheet" href="/datebook-web/style.css" />
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Datebook</p>
+
+      <!--
+        GitHub Pages has no routing, but it serves this file for any path it
+        doesn't recognise — which is what makes share links work. An invite is
+        sent as /join/<token>; that path is not a file, so we land here, pull
+        the token out and hand it to the app.
+
+        Without this, pointing the app's web base URL at this site would turn
+        working datebook:// links into 404s, which is worse than not having a
+        site at all.
+      -->
+      <div id="join" hidden>
+        <h1>Opening Datebook…</h1>
+        <p>
+          If nothing happens, you may not have Datebook installed yet.
+          <a id="retry" href="#">Try again</a>.
+        </p>
+        <p class="status">
+          Datebook is in beta on iPhone.
+          <a href="mailto:christinesavadel@gmail.com">Get in touch</a> for an invitation.
+        </p>
+      </div>
+
+      <div id="lost">
+        <h1>That page isn&rsquo;t here.</h1>
+        <p>The link may be old, or mistyped.</p>
+        <p class="status"><a href="/datebook-web/">Back to Datebook</a></p>
+      </div>
+    </main>
+
+    <footer>
+      <a href="/datebook-web/privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="/datebook-web/support.html">Support</a>
+    </footer>
+
+    <script>
+      (function () {
+        var match = location.pathname.match(/\/join\/([A-Za-z0-9_-]+)\/?$/);
+        if (!match) return;
+
+        var target = 'datebook://join/' + match[1];
+        document.getElementById('lost').hidden = true;
+        document.getElementById('join').hidden = false;
+        document.getElementById('retry').href = target;
+
+        // replace(), so backing out of the app doesn't land on this page again.
+        location.replace(target);
+      })();
+    </script>
+  </body>
+</html>
