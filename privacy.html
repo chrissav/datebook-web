@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datebook — Privacy Policy</title>
+    <meta
+      name="description"
+      content="What Datebook stores, who can see it, and how to delete it."
+    />
+    <style>
+      /* Self-contained: no fonts, scripts or images fetched from anywhere, so
+         the page works offline, loads instantly, and cannot itself become a
+         way of tracking whoever reads a privacy policy. */
+      :root {
+        --paper: #f6efe1;
+        --card: #fffdf8;
+        --ink: #2c2723;
+        --ink-soft: #4a4239;
+        --muted: rgba(44, 39, 35, 0.62);
+        --line: rgba(44, 39, 35, 0.12);
+        --terracotta: #b4614a;
+        --gold: #c08a3e;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 40px 20px 80px;
+        background: var(--paper);
+        color: var(--ink-soft);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 17px;
+        line-height: 1.65;
+      }
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 44px 40px;
+      }
+      .eyebrow {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      h1 { margin: 10px 0 4px; font-size: 32px; font-weight: normal; color: var(--ink); }
+      .updated { margin: 0 0 30px; font-size: 14px; color: var(--muted); }
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 21px;
+        font-weight: normal;
+        color: var(--ink);
+        border-top: 1px solid var(--line);
+        padding-top: 26px;
+      }
+      h2:first-of-type { border-top: none; padding-top: 0; }
+      p { margin: 0 0 14px; }
+      strong { color: var(--ink); }
+      a { color: var(--terracotta); }
+      ul { margin: 0 0 14px; padding-left: 22px; }
+      li { margin-bottom: 8px; }
+      footer {
+        max-width: 640px;
+        margin: 22px auto 0;
+        text-align: center;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      @media (max-width: 560px) {
+        body { padding: 24px 14px 60px; }
+        main { padding: 30px 22px; border-radius: 12px; }
+        h1 { font-size: 27px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Datebook</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated 6 August 2026</p>
+
+      <p>
+        Datebook is a private app for two people to plan dates together and keep a record of
+        the ones they went on. This policy describes exactly what it stores, where it goes,
+        and how to get rid of it.
+      </p>
+
+      <h2>What Datebook collects</h2>
+      <ul>
+        <li>
+          <strong>Your email address.</strong> Used to sign you in and to address an
+          invitation to someone. Nothing else.
+        </li>
+        <li>
+          <strong>Your name, chosen emoji, an optional photo, and an optional line about
+          yourself.</strong> Shown to the person you&rsquo;re dating. Nobody else can see it.
+        </li>
+        <li>
+          <strong>The date ideas, plans and dates you record</strong> — titles, places,
+          addresses, times, your votes, whether you&rsquo;d go back somewhere, your notes,
+          and any photos you attach.
+        </li>
+        <li>
+          <strong>Approximate location, only while you&rsquo;re using the map</strong>, and
+          only if you allow it. It centres the map and works out how far away a place is.
+          Your location is never recorded, never stored, and never sent anywhere.
+        </li>
+      </ul>
+      <p>
+        Datebook has no analytics, no advertising, no tracking, and no third-party SDKs that
+        watch what you do.
+      </p>
+
+      <h2>Who can see it</h2>
+      <p>
+        <strong>The person you&rsquo;re dating, and nobody else.</strong> This is enforced by
+        the database itself, not just by the app: every table has row-level security policies
+        that make another couple&rsquo;s data unreadable, and photos live in private storage
+        reachable only through short-lived signed links.
+      </p>
+      <p>
+        Votes are a specific case. Your votes on a date idea are invisible to your partner
+        until you have both finished voting — again enforced by the database, so a reveal
+        can&rsquo;t happen early even by mistake.
+      </p>
+      <p>
+        Nobody at Datebook reads your dates, notes or photos. Nothing is sold, shared, or
+        given to advertisers, because there aren&rsquo;t any.
+      </p>
+
+      <h2>Where it&rsquo;s stored</h2>
+      <p>
+        Data is held in <a href="https://supabase.com">Supabase</a>, which hosts the database
+        and file storage. Sign-in codes and invitation emails are delivered by
+        <a href="https://www.brevo.com">Brevo</a>. Both act only as processors — they store
+        and transmit the data so the app can work, and use it for nothing else.
+      </p>
+      <p>
+        Optionally, if place search is switched on, searching for a place sends your search
+        text and the map area you&rsquo;re looking at to Google Places. Your identity and your
+        Datebook are not sent, and Google is not told who is searching.
+      </p>
+
+      <h2>Deleting it</h2>
+      <p>
+        <strong>Settings → Delete my account</strong>, inside the app. It removes your
+        profile, your photos, your votes, your reviews and your notes, permanently and
+        without a waiting period.
+      </p>
+      <p>
+        One thing to know: plans you made <em>with</em> someone stay with them. If you created
+        a date idea you shared, deleting your account leaves it in their Datebook rather than
+        removing something from someone who didn&rsquo;t ask for it to go. Anything that is
+        only yours is deleted outright.
+      </p>
+      <p>Signing out, by contrast, leaves everything where it is so you can come back.</p>
+
+      <h2>Children</h2>
+      <p>
+        Datebook isn&rsquo;t directed at children and shouldn&rsquo;t be used by anyone under
+        13.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If this policy changes, the date at the top changes with it. Anything that materially
+        affects what&rsquo;s collected or who can see it will be announced in the app before
+        it takes effect.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions, or a request about your data:
+        <a href="mailto:christinesavadel@gmail.com">christinesavadel@gmail.com</a>
+      </p>
+    </main>
+    <footer>Plan together. Keep your story.</footer>
+  </body>
+</html>
