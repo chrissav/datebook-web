@@ -47,10 +47,10 @@
 
     <script>
       (function () {
-        var match = location.pathname.match(/\/join\/([A-Za-z0-9_-]+)\/?$/);
+        var match = location.pathname.match(/\/(join|invite)\/([A-Za-z0-9_-]+)\/?$/);
         if (!match) return;
 
-        var target = 'datebook://join/' + match[1];
+        var target = 'datebook://' + match[1] + '/' + match[2];
         document.getElementById('lost').hidden = true;
         document.getElementById('join').hidden = false;
         document.getElementById('retry').href = target;
