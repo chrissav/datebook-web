@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+      Lives in the datebook-web repository, mirrored from date-book/web/.
+
+      The invite page's twin: same two rules, a different kind of token. The app
+      used to send /datebook-web/join/<token>, which 404.html catches — that
+      works, but GitHub Pages serves 404.html with an HTTP 404 status, and every
+      link-preview crawler discards a non-200 response. So the message arrived as
+      a bare URL with no card. This page returns 200 and has og: tags to build
+      one from.
+
+      Why the token is in the fragment. Everything after # is stripped before the
+      request leaves the browser, so GitHub, its CDN, its logs and any downstream
+      Referer never see it. In a path they see all of them, and those logs are
+      not ours to inspect or purge.
+
+      404.html still handles the old /join/<token> form, so links sent before
+      this page existed keep working. Do not remove that.
+    -->
+
+    <title>Someone shared date ideas with you</title>
+    <meta
+      name="description"
+      content="They picked a few ideas for a night out. Say which ones you like — neither of you sees the other’s answers until you have both voted."
+    />
+
+    <!-- The preview card. og:image must be absolute and reachable without a
+         login, or iMessage silently falls back to printing the address. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Datebook" />
+    <meta property="og:title" content="Someone shared date ideas with you" />
+    <meta
+      property="og:description"
+      content="They picked a few ideas for a night out. Say which ones you like — neither of you sees the other’s answers until you have both voted."
+    />
+    <meta property="og:url" content="https://chrissav.github.io/datebook-web/list.html" />
+    <meta property="og:image" content="https://chrissav.github.io/datebook-web/og-list.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Datebook — date ideas to vote on" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Nothing here should be indexed, and no request out of this page should
+         carry the address it came from. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+
+    <link rel="stylesheet" href="/datebook-web/style.css" />
+    <style>
+      .cta {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 14px 26px;
+        background: var(--terracotta);
+        color: #fbeee1;
+        border-radius: 12px;
+        text-decoration: none;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 16px;
+      }
+      .cta:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Date ideas</p>
+
+      <div id="ideas" hidden>
+        <h1>Someone picked some ideas for you.</h1>
+        <p class="lead">
+          Say which ones you like. Neither of you sees the other&rsquo;s answers until you
+          have both voted &mdash; then Datebook shows you what you agreed on.
+        </p>
+        <p>
+          Nothing is shared outside the two of you.
+        </p>
+        <p><a class="cta" id="open" href="#">Open in Datebook</a></p>
+        <p class="status">
+          Don&rsquo;t have it yet? <a href="/datebook-web/">See what Datebook is</a>.
+        </p>
+      </div>
+
+      <div id="lost">
+        <h1>This link is incomplete.</h1>
+        <p>
+          Share links stop working if part of the address is dropped along the way, which
+          some apps do to long links. Ask them to send it again.
+        </p>
+        <p class="status"><a href="/datebook-web/">Back to Datebook</a></p>
+      </div>
+    </main>
+
+    <footer>
+      <a href="/datebook-web/privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="/datebook-web/support.html">Support</a>
+    </footer>
+
+    <script>
+      (function () {
+        var match = /[#&]t=([A-Za-z0-9_-]+)/.exec(location.hash || '');
+        if (!match) return;
+
+        // Three slashes: an empty authority, so the whole of what follows is the
+        // path. With two, 'join' parses as the host and the router is handed
+        // only the token. This is the form Linking.createURL emits in the app,
+        // and the same note is in 404.html.
+        var target = 'datebook:///join/' + match[1];
+
+        document.getElementById('lost').hidden = true;
+        document.getElementById('ideas').hidden = false;
+        document.getElementById('open').href = target;
+
+        // replace(), so backing out of the app doesn't land here again.
+        location.replace(target);
+      })();
+    </script>
+  </body>
+</html>
